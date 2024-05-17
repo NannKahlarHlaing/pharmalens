@@ -3,26 +3,20 @@
         <img src="{{ asset('images/patient-special-issue-probiotic-top.webp') }}" class="w-full h-96 object-cover"  alt="">
     </x-wrappers.banner>
     <x-wrappers.container class="">
-        <x-wrappers.page-title class="position-absolute -mt-32">
-            Company Profile
-        </x-wrappers.page-title>
-        <div class="grid grid-cols-5 py-5 mb-4">
-            <x-wrappers.sub-title class="col-span-5">
-                Business Description
-            </x-wrappers.sub-title>
+        <x-wrappers.page-title class="position-absolute -mt-16" title="Company Profile" />
+        <div class="grid grid-cols-5 mb-4 mt-9">
+            <x-wrappers.sub-title class="col-span-5 " title="Business Description" />
             <div class="col-span-2">
                 <img src="{{ asset('images/wallpaper-1-e1696784878917.jpg') }}" class="w-full h-80" alt="">
             </div>
             <div class="col-span-3">
-                <x-informations.description-list title="Line of Business" description="Traditional Medicine Distribution" />
-                <x-informations.description-list title="Prouct Line" description="Export: Beans, Maize, Tumeric, Ljwanti, Betal Nuts, SoapNut. <br> Import: Chemical, Herbal, Spices and others" />        
-                <x-informations.description-list title="Factories" description="Factory 1 <br> Factory 2 <br> Factory 3" />
+                <x-informations.description-list class="ps-12" title="Line of Business" description="Traditional Medicine Distribution" />
+                <x-informations.description-list class="ps-12" title="Prouct Line" description="Export: Beans, Maize, Tumeric, Ljwanti, Betal Nuts, SoapNut. <br> Import: Chemical, Herbal, Spices and others" />        
+                <x-informations.description-list class="ps-12" title="Factories" description="Factory 1 <br> Factory 2 <br> Factory 3" />
             </div>
         </div>
-        <div class="">
-            <x-wrappers.sub-title>
-                About Us
-            </x-wrappers.sub-title>        
+        <div class="mt-9">
+            <x-wrappers.sub-title title="About Us" />       
             <div class="">
                 <b>The standard Lorem Ipsum passage, used since the 1500s</b><br>
                 <p>

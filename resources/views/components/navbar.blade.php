@@ -1,8 +1,9 @@
 <nav class="bg-white border-gray-200">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap">Pharmalens</span>
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
+      <a href="{{ url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+          {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flo/wbite Logo" /> --}}
+		  <x-application-logo class="w-24 fill-current text-gray-500 " /> 
+          <x-wrappers.page-title title="Sandhi Brothers" />
       </a>
       <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-dropdown" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
@@ -78,14 +79,11 @@
 				<a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">News</a>
 			</li>
 			<li>
-				<a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Contact</a>
+				<a href="{{ route('contact') }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Contact</a>
 			</li>
-			@auth
+			{{-- @auth
 				<li>
 					<a href="{{ route('dashboard') }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Dashboard</a>
-				</li>
-				<li>
-					<a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{{auth()->user()->name}}</a>
 				</li>
 				<form action="/logout" method="POST">
 					@csrf
@@ -98,7 +96,7 @@
 				<li>
 					<a href="{{ route('login') }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Login</a>
 				</li>
-			@endauth
+			@endauth --}}
         </ul>
       </div>
     </div>

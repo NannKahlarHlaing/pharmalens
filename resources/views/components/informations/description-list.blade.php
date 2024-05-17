@@ -1,5 +1,5 @@
 @props(['title', 'description'])
-<div class="flex ps-12 mb-4">
+<div {{$attributes->merge(['class' => 'flex mb-4'])}} class="">
     <div class="me-7">
         <x-informations.arrow-svg size="40" />
     </div>

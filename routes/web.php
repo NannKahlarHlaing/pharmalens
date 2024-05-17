@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InformationController;
 
@@ -15,11 +16,15 @@ else{
 }
 Route::prefix($lang)->group(function ($lang) {
     Route::get('/', function () {
-        return view('home');
+        return view('public.home');
     });
 
     Route::controller(InformationController::class)->group(function(){
         Route::get('company-profile', 'company_profile')->name('company-profile');
+    });
+
+    Route::controller(ContactController::class)->group(function(){
+        Route::get('contact', 'index')->name('contact');
     });
 
 });

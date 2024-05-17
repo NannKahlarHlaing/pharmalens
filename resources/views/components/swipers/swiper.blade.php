@@ -1,5 +1,5 @@
 <div {{ $attributes->merge(['class'=> "swiper"]) }}>  
-	<div class="swiper-wrapper">
+	<div class="swiper-wrapper mb-10">
    		{{ $slot }}
 	</div>
 	<!-- If we need pagination -->

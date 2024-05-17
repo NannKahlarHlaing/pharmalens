@@ -1,6 +1,6 @@
 <x-admins.layout>
         <div class=" max-w-xl">
-            <x-wrappers.sub-title>Create Product</x-wrappers.sub-title>
+            <x-wrappers.sub-title title="Create Product" />
             <form method="POST" action="">
             @csrf
             <!-- Name -->

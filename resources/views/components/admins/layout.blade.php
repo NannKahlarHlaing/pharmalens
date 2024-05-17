@@ -16,7 +16,7 @@
             <div class="">
                 <a href="/" class="py-2 flex items-center space-x-4">
                     <x-application-logo class="w-24 fill-current text-gray-500" /> 
-                    <x-wrappers.page-title>Sandhi Brothers</x-wrappers.page-title>
+                    <x-wrappers.page-title title="{{ env('APP_NAME') }}" />
                 </a>
             </div>
             <div class="space-x-4">

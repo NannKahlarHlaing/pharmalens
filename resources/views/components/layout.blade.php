@@ -65,10 +65,10 @@
             // Optional parameters
             direction: 'horizontal',
             loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
+            // autoplay: {
+            //     delay: 4000,
+            //     disableOnInteraction: false,
+            // },
             pagination: {
                     el: '.swiper-pagination',
                 },

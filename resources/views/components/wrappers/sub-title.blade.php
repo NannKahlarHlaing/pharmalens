@@ -1,3 +1,4 @@
-<div {{ $attributes->merge(['class'=> "block text-3xl text-center mb-6 font-medium"]) }}>
-    {{ $slot }}
+@props(['title'])
+<div {{ $attributes->merge(['class'=> "block text-3xl text-center mt-5 mb-9 font-medium"]) }}>
+    {{ $title }}
 </div>
