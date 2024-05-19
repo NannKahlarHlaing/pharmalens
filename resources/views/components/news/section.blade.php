@@ -1,11 +1,11 @@
-<div class=" grid grid-cols-4 gap-8">
+<div {{ $attributes->merge(['class'=> "grid grid-cols-4 gap-8"]) }} >
     @for ($i = 0; $i < 4; $i++)
         <x-wrappers.card class="border-custom-blue text-center">
             <div class="p-5 border-b border-custom-blue">
                 <x-footers.footer-title class="" name="Certificate of Honor" />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum modi deserunt dolorem 
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum modi deserunt dolorem
             </div>
-            
+
             <div class="p-3">
                 <a href="" class="flex items-center justify-center hover:font-bold hover:text-custom-blue">
                     <span class="me-2">Read More</span>

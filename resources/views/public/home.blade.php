@@ -5,12 +5,12 @@
     <x-swipers.swiper-banner-slide />
     <x-wrappers.container>
         {{-- import items --}}
-        <x-wrappers.page-title class="my-9 text-center" title="Import Items" />
+        <x-wrappers.page-title class="my-9 text-center" title="{{ __('lang.import_items') }}" />
         <x-products.product-swiper />
 
         {{-- export items --}}
         <div class="max-w-screen-xl mx-auto py-4">
-            <x-wrappers.page-title class="my-9 text-center " title="Export Items" />
+            <x-wrappers.page-title class="my-9 text-center " title="{{ __('lang.export_items') }}" />
             <x-products.product-swiper />
         </div>
     </x-wrappers.container>

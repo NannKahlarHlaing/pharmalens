@@ -2,7 +2,7 @@
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
       <a href="{{ url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
           {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flo/wbite Logo" /> --}}
-		  <x-application-logo class="w-24 fill-current text-gray-500 " /> 
+		  <x-application-logo class="w-24 fill-current text-gray-500 " />
           <x-wrappers.page-title title="Sandhi Brothers" />
       </a>
       <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-dropdown" aria-expanded="false">
@@ -18,7 +18,7 @@
           </li>
           	<li>
 				<button id="" data-dropdown-toggle="about-us" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
-					About Us 
+					About Us
 					<svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
 						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
 					</svg>
@@ -76,7 +76,7 @@
 				</div>
 			</li>
 			<li>
-				<a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">News</a>
+				<a href="{{ route('news') }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">News</a>
 			</li>
 			<li>
 				<a href="{{ route('contact') }}" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Contact</a>
@@ -102,4 +102,3 @@
     </div>
   </nav>
 
-  

@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('information', function (Blueprint $table) {
             $table->id();
+            $table->string('page_title');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('address');
+            $table->string('facebook');
+            $table->string('youtube');
+            $table->string('twitter');
+            $table->string('footer_text');
             $table->timestamps();
         });
     }

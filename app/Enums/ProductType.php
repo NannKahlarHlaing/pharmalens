@@ -1,11 +1,11 @@
 <?php
 namespace App\Enums;
-enum Category: int
+enum ProductType: int
 {
     case others = 0;
     case import = 1;
     case export = 2;
-    
+
 
     public function description(): string{
         return match($this)

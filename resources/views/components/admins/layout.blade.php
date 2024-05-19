@@ -15,7 +15,7 @@
         <div class="flex justify-between items-center px-9">
             <div class="">
                 <a href="/" class="py-2 flex items-center space-x-4">
-                    <x-application-logo class="w-24 fill-current text-gray-500" /> 
+                    <x-application-logo class="w-24 fill-current text-gray-500" />
                     <x-wrappers.page-title title="{{ env('APP_NAME') }}" />
                 </a>
             </div>
@@ -25,9 +25,9 @@
                 </button> --}}
 
                 {{-- <button>
-                    
+
                 </button> --}}
-                <div class=""><i class="fas fa-user text-cyan-500 text-lg"></i> {{ ucwords(auth()->user()->name)  }}</div>
+                <div class="space-x-2"><i class="fas fa-user text-cyan-500 text-lg"></i> {{ ucwords(auth()->user()->name)  }}</div>
             </div>
         </div>
     </nav>
