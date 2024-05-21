@@ -6,15 +6,15 @@
             <span>Dashboard</span>
         </a>
         <a href="{{ route('products') }}" class="px-4 py-2 flex items-center space-x-4 rounded-md text-gray-500 group">
-            <i class="fas fa-exchange-alt"></i>
+            <i class="fa-solid fa-cart-plus"></i>
             <span>Products</span>
         </a>
         <a href="{{ route('dashboard.news') }}" class="px-4 py-2 flex items-center space-x-4 rounded-md text-gray-500 group">
-            <i class="fas fa-user"></i>
+            <i class="fa-solid fa-newspaper"></i>
             <span>News</span>
         </a>
         <a href="{{ route('dashboard.information') }}" class="px-4 py-2 flex items-center space-x-4 rounded-md text-gray-500 group">
-            <i class="fas fa-user"></i>
+            <i class="fas fa-exchange-alt"></i>
             <span>Page Information</span>
         </a>
         {{-- <a href="#" class="px-4 py-2 flex items-center space-x-4 rounded-md text-gray-500 group">

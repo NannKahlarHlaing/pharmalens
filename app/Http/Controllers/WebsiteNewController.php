@@ -29,6 +29,7 @@ class WebsiteNewController extends Controller
 
         $new->title = request()->title;
         $new->body = request()->body;
+        $new->slug = str_replace(' ', '-', strtolower(request('title')));
 
         $image = request()->image;
         if ($image) {
@@ -56,6 +57,7 @@ class WebsiteNewController extends Controller
     public function update(Request $request, WebsiteNew $new){
         $new->title = request()->title;
         $new->body = request()->body;
+        $new->slug = str_replace(' ', '-', strtolower(request('title')));
 
         $image = request()->image;
         if ($image) {
@@ -71,7 +73,9 @@ class WebsiteNewController extends Controller
         }
 
         $new->save();
-        return redirect('/dashboard/news');
+        return redirect('/dashboard/news')->with([
+            'success' => 'New is updated successfully'
+        ]);
     }
 
     public function destroy(WebsiteNew $new){

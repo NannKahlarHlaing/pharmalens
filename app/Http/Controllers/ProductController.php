@@ -7,13 +7,46 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductStoreRequest;
 use Intervention\Image\Laravel\Facades\Image;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
     public function index(){
 
         return view('admins.products.index', [
-            'products' => Product::latest()->filter(request(['name']))->paginate(2)
+            'products' => Product::latest()->filter(request(['name']))->paginate(20)
+        ]);
+    }
+
+    public function import_items(){
+        return view('public.imports', [
+            'import_items' => Product::where('trading', 1)->latest()->paginate(16)
+        ]);
+    }
+
+    public function export_items(){
+        return view('public.exports', [
+            'export_items' => Product::where('trading', 2)->latest()->paginate(16)
+        ]);
+    }
+
+    public function raw_medicine(){
+        return view('public.raw_for_medicine', [
+            'raw_medicines' => Product::where('category', 1)->latest()->paginate(2)
+        ]);
+    }
+
+    public function herb_powder(){
+        return view('public.herb_powder', [
+            'herb_powders' => Product::where('category', 2)->latest()->paginate(2)
+        ]);
+    }
+
+    public function herb_tablet(){
+        // $a = Product::where('category', 3)->toSql();
+        // dd($a);
+        return view('public.herb_tablet', [
+            'herb_tablets' => Product::where('category', 3)->latest()->paginate(2)
         ]);
     }
 
@@ -27,7 +60,7 @@ class ProductController extends Controller
         $product->name_en = request()->name_en;
         $product->name_mm = request()->name_mm;
         $product->category = request()->category;
-        $product->item = request()->item;
+        $product->trading = request()->trading;
 
         $image = request()->image;
         if ($image) {
@@ -53,10 +86,14 @@ class ProductController extends Controller
     }
 
     public function update(Request $request, Product $product){
+        // dd(request()->trading);
         $product->name_en = request()->name_en;
         $product->name_mm = request()->name_mm;
         $product->category = request()->category;
-        $product->item = request()->item;
+        $product->trading = request()->trading;
+
+        $product->save();
+        // dd($product);
 
         $image = request()->image;
         if ($image) {
@@ -72,7 +109,9 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect('/dashboard/products');
+        return redirect('/dashboard/products')->with([
+            'success' => 'Product is updated successfully'
+        ]);
     }
 
     public function destroy(Product $product){

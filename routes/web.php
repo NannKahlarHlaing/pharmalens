@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WebsiteNewController;
 use App\Http\Controllers\InformationController;
+use App\Models\Product;
 
 if (\Request::segment(1) =='en') {
     $lang ='en';
@@ -16,12 +17,17 @@ else{
     \App::setLocale('mm');
 }
 Route::prefix($lang)->group(function ($lang) {
-    Route::get('/', function () {
-        return view('public.home');
+    Route::controller(InformationController::class)->group(function(){
+        Route::get('/', 'home')->name('home_page');
+        Route::get('company-profile', 'company_profile')->name('company-profile');
     });
 
-    Route::controller(InformationController::class)->group(function(){
-        Route::get('company-profile', 'company_profile')->name('company-profile');
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('import-items', 'import_items')->name('import-items');
+        Route::get('export-items', 'export_items')->name('export-items');
+        Route::get('raw-for-medicine', 'raw_medicine')->name('raw-for-medicine');
+        Route::get('herb-powder', 'herb_powder')->name('herb-powder');
+        Route::get('herb-tablet', 'herb_tablet')->name('herb-tablet');
     });
 
     Route::controller(ContactController::class)->group(function(){

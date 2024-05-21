@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name_mm');
             $table->string('name_en');
-            $table->enum('category', [0, 1, 2, 3]);
-            $table->enum('item', [0, 1, 2]);
+            $table->integer('category'); 
+            $table->integer('trading');
             $table->string('image');
             $table->integer('order');
             $table->softDeletes();

@@ -28,7 +28,7 @@ class ProductStoreRequest extends FormRequest
             'name_en' => 'required',
             'name_mm' => 'required',
             'category' => [new Enum(Category::class)],
-            'item' => [new Enum(ProductType::class)],
+            'trading' => [new Enum(ProductType::class)],
             'image' => 'required',
         ];
     }

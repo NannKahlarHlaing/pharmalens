@@ -1,3 +1,4 @@
+{{-- @props(['posts']) --}}
 <div {{ $attributes->merge(['class'=> "swiper"]) }}>  
 	<div class="swiper-wrapper mb-10">
    		{{ $slot }}

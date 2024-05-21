@@ -1,6 +1,6 @@
 <x-admins.layout>
     @if (session('success'))
-        <div class="alert alert-success text-center">{{ session('success') }}</div>
+        <x-success-alert />
     @endif
     <div class="bg-white rounded-lg p-4 shadow-md my-4">
         <div class="py-2 text-left w-full flex justify-between">
@@ -48,6 +48,6 @@
                 @endforeach
             </tbody>
         </table>
-        <div class="mt-4">{{ $news->links() }}</div>
+        {{-- <div class="mt-4">{{ $news->links() }}</div> --}}
     </div>
 </x-admins.layout>

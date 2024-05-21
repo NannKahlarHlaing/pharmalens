@@ -1,8 +1,8 @@
 <x-admins.layout>
     @if (session('success'))
-        <div class="alert alert-success text-center">{{ session('success') }}</div>
+        <x-success-alert />
     @endif
-    <form action="">
+    <form action="" class="mt-4">
         <div class="bg-white rounded-full border-none p-3 mb-4 shadow-md">
             <div class="flex items-center">
                 <i class="px-3 fas fa-search ml-1"></i>
@@ -25,34 +25,34 @@
                     <th>Name(English)</th>
                     <th>Name(Myanmar)</th>
                     <th>Category</th>
-                    <th>Item</th>
+                    <th>Trading</th>
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $item)
+                @foreach ($products as $product)
                     <tr class="border-b w-full px-4 py-10 text-left">
                         <td>
-                            {{ $item->name_en }}
+                            {{ $product->name_en }}
                         </td>
                         <td>
-                            {{ $item->name_mm }}
+                            {{ $product->name_mm }}
                         </td>
                         <td>
-                            {{ $item->category }}
+                            {{ $product->category->description() }}
                         </td>
                         <td>
-                            {{ $item->item }}
+                            {{ $product->trading->description() }}
                         </td>
                         <td>
-                            <a href="{{ route('products.edit', $item->id) }}">
+                            <a href="{{ route('products.edit', $product->id) }}">
                                 <x-primary-button class="h-8">
                                     {{ __('Edit') }}
                                 </x-primary-button>
                             </a>
                         </td>
                         <td>
-                            <form action="{{ route('products.destroy', $item->id) }}" method="POST">
+                            <form action="{{ route('products.destroy', $product->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <x-primary-button class="h-8" onclick="return confirm('Are you sure to delete');">

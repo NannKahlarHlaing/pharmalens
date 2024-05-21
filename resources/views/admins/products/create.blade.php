@@ -39,16 +39,16 @@
             </div>
 
             <div class="mb-4">
-                <x-input-label for="item" :value="__('Item')" />
-                <select name="item" id="item" class="bborder-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
-                    <option value="">Choose item</option>
+                <x-input-label for="trading" :value="__('Trading')" />
+                <select name="trading" id="trading" class="bborder-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
+                    <option value="">Choose trading</option>
                     @foreach (App\Enums\ProductType::cases() as $key=>$value )
-                        <option value="{{$value}}" {{ (old("item") == $value->value ? "selected":"") }}>
+                        <option value="{{$value}}" {{ (old("trading") == $value->value ? "selected":"") }}>
                             {{ App\Enums\ProductType::cases()[$key]->description()}}
                         </option>
                     @endforeach
                 </select>
-                <x-input-error :messages="$errors->get('item')" class="mt-2" />
+                <x-input-error :messages="$errors->get('trading')" class="mt-2" />
             </div>
             <!-- Email Address -->
             <div class="mb-4">

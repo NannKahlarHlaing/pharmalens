@@ -5,13 +5,19 @@
     <x-swipers.swiper-banner-slide />
     <x-wrappers.container>
         {{-- import items --}}
-        <x-wrappers.page-title class="my-9 text-center" title="{{ __('lang.import_items') }}" />
-        <x-products.product-swiper />
+        <div class="flex items-center justify-between">
+            <x-wrappers.page-title class="my-9" title="{{ __('lang.import_items') }}" />
+            <x-informations.button-more link="{{ route('import-items') }}" text="{{ __('lang.view_more') }}" />
+        </div>
+        <x-products.product-swiper :posts="$import_items" />
 
         {{-- export items --}}
         <div class="max-w-screen-xl mx-auto py-4">
-            <x-wrappers.page-title class="my-9 text-center " title="{{ __('lang.export_items') }}" />
-            <x-products.product-swiper />
+            <div class="flex items-center justify-between">
+                <x-wrappers.page-title class="my-9" title="{{ __('lang.export_items') }}" />
+                <x-informations.button-more link="{{ route('export-items') }}" text="{{ __('lang.view_more') }}" />
+            </div>
+            <x-products.product-swiper :posts="$exports" />
         </div>
     </x-wrappers.container>
     <div class="bg-custom-yellow">
@@ -31,7 +37,10 @@
         </x-wrappers.container>
     </div>
     <x-wrappers.container class="pb-10">
-        <x-wrappers.page-title class="my-9 text-center" title="News" />
-        <x-news.section />
+        <div class="flex items-center justify-between">
+            <x-wrappers.page-title class="my-9" title="{{ __('lang.news') }}" />
+            <x-informations.button-more link="{{ route('news') }}" text="{{ __('lang.view_more') }}" />
+        </div>
+        <x-news.section :news="$news" />
     </x-wrappers.container>
 </x-layout>

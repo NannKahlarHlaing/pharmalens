@@ -14,7 +14,7 @@
       <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
         <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
           <li>
-            <a href="{{ url('/') }}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 " aria-current="page">Home</a>
+            <a href="{{ url('/') }}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 " aria-current="page">Home {{ app()->getLocale() }}</a>
           </li>
           	<li>
 				<button id="" data-dropdown-toggle="about-us" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
@@ -45,10 +45,10 @@
 				<div id="trading" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-32">
 					<ul class="text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
 						<li>
-							<a href="{{ route('company-profile') }}" class="block px-4 py-2 hover:bg-gray-100">Import Items</a>
+							<a href="{{ route('import-items') }}" class="block px-4 py-2 hover:bg-gray-100">Import Items</a>
 						</li>
 						<li>
-							<a href="{{ route('company-profile') }}" class="block px-4 py-2 hover:bg-gray-100">Export Items</a>
+							<a href="{{ route('export-items') }}" class="block px-4 py-2 hover:bg-gray-100">Export Items</a>
 						</li>
 					</ul>
 				</div>
@@ -64,13 +64,13 @@
 				<div id="retail-wholesales" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-48">
 					<ul class="text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
 						<li>
-							<a href="{{ route('company-profile') }}" class="block px-4 py-2 hover:bg-gray-100">Raw for Herbal Medicine</a>
+							<a href="{{ route('raw-for-medicine') }}" class="block px-4 py-2 hover:bg-gray-100">Raw for Herbal Medicine</a>
 						</li>
 						<li>
-							<a href="{{ route('company-profile') }}" class="block px-4 py-2 hover:bg-gray-100">Herb Powder</a>
+							<a href="{{ route('herb-powder') }}" class="block px-4 py-2 hover:bg-gray-100">Herb Powder</a>
 						</li>
 						<li>
-							<a href="{{ route('company-profile') }}" class="block px-4 py-2 hover:bg-gray-100">Herb Tablet</a>
+							<a href="{{ route('herb-tablet') }}" class="block px-4 py-2 hover:bg-gray-100">Herb Tablet</a>
 						</li>
 					</ul>
 				</div>

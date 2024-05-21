@@ -2,7 +2,7 @@
     <x-wrappers.banner>
         <img src="{{ asset('images/patient-special-issue-probiotic-top.webp') }}" class="w-full h-96 object-cover"  alt="">
     </x-wrappers.banner>
-    <x-wrappers.container class="">
+    <x-wrappers.container>
         <x-wrappers.page-title class="position-absolute -mt-16" title="Company Profile" />
         <div class="grid grid-cols-5 mb-4 mt-9">
             <x-wrappers.sub-title class="col-span-5 " title="Business Description" />
@@ -17,7 +17,7 @@
         </div>
         <div class="my-9">
             <x-wrappers.sub-title title="About Us" />
-            <div class="">
+            <div>
                 <b>The standard Lorem Ipsum passage, used since the 1500s</b><br>
                 <p>
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

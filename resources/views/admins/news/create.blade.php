@@ -15,11 +15,12 @@
                 <textarea name="body" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="body" cols="30" rows="10">{{ old('body') }}</textarea>
                 <x-input-error :messages="$errors->get('body')" class="mt-2" />
             </div>
-            <div class="mb-4">
+            
+            {{-- <div class="mb-4">
                 <x-input-label for="email" :value="__('Image')" />
                 <x-text-input id="image" class="block mt-1 px-2 h-10 w-full" type="file" name="image" :value="old('image')" />
                 <x-input-error :messages="$errors->get('image')" class="mt-2" />
-            </div>
+            </div> --}}
 
             <x-primary-button class="ms-4 h-10">
                 {{ __('Create') }}

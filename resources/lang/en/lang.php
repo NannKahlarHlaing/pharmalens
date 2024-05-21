@@ -8,6 +8,7 @@
         'retail_whosale' => 'Retail And Wholesales',
         'company_profile' => 'Company Profile',
         'news' => 'News',
+        'view_more' => 'VIEW MORE',
         'read_more' => 'Read More',
         'contact' => 'Contact'
     ]
