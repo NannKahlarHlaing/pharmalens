@@ -22,7 +22,7 @@
     </x-wrappers.container>
     <div class="bg-custom-yellow">
         <x-wrappers.container class="pt-4 pb-10">
-            <x-wrappers.page-title class="my-9 text-center" title="Company Profile" />
+            <x-wrappers.page-title class="my-9 text-center" title="{{ __('lang.company_profile') }}" />
             <b>About Us:</b>
             <p>
                 MediLife Pharmaceuticals is a leading global pharmaceutical company dedicated to improving health and well-being through the development, manufacturing, and commercialization of innovative medicines. With a relentless commitment to scientific excellence and patient-centricity, we strive to address unmet medical needs and make a meaningful difference in the lives of patients worldwide.

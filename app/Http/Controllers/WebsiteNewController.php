@@ -20,6 +20,10 @@ class WebsiteNewController extends Controller
         ]);
     }
 
+    public function detail(WebsiteNew $new){
+        return view('public.news_detail', ['new'=> $new]);
+    }
+
     public function create(){
         return view('admins.news.create');
     }
@@ -29,7 +33,7 @@ class WebsiteNewController extends Controller
 
         $new->title = request()->title;
         $new->body = request()->body;
-        $new->slug = str_replace(' ', '-', strtolower(request('title')));
+        $new->slug = request()->short_desc;
 
         $image = request()->image;
         if ($image) {
@@ -57,7 +61,7 @@ class WebsiteNewController extends Controller
     public function update(Request $request, WebsiteNew $new){
         $new->title = request()->title;
         $new->body = request()->body;
-        $new->slug = str_replace(' ', '-', strtolower(request('title')));
+        $new->slug = request()->short_desc;
 
         $image = request()->image;
         if ($image) {

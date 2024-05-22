@@ -1,13 +1,14 @@
 <section class="footer bg-custom-blue text-white py-10">
     <x-wrappers.container>
-        <div class="grid grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="">
-                <div class="text-5xl font-bold mb-4">Pharmalens {{ $info }}</div>
+                <div class="text-5xl font-bold mb-4">Pharmalens</div>
                 <div class="">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum pariatur facilis ratione incidunt sed ad eos veritatis modi non nulla, iste voluptate maxime iure. Excepturi debitis animi natus corrupti pariatur!
                 </div>
+                {{-- <div class="">{{ $info->address }}</div> --}}
             </div>
-            
+
             <div class="">
                 <x-footers.footer-title name="About Us" />
                 <x-footers.footer-list link="#" description="Company Profile" />

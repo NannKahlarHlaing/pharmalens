@@ -4,19 +4,19 @@
     </x-wrappers.banner>
     <x-wrappers.container>
         <x-wrappers.page-title class="position-absolute -mt-16" title="Company Profile" />
-        <div class="grid grid-cols-5 mb-4 mt-9">
-            <x-wrappers.sub-title class="col-span-5 " title="Business Description" />
-            <div class="col-span-2">
+        <div class="grid grid-cols-10 mb-4 mt-9">
+            <x-wrappers.sub-title class="col-span-10" title="{{ __('lang.business_description') }}" />
+            <div class="col-span-10 md:col-span-5 lg:col-span-4">
                 <img src="{{ asset('images/wallpaper-1-e1696784878917.jpg') }}" class="w-full h-80" alt="">
             </div>
-            <div class="col-span-3">
-                <x-informations.description-list class="ps-12" title="Line of Business" description="Traditional Medicine Distribution" />
-                <x-informations.description-list class="ps-12" title="Prouct Line" description="Export: Beans, Maize, Tumeric, Ljwanti, Betal Nuts, SoapNut. <br> Import: Chemical, Herbal, Spices and others" />
-                <x-informations.description-list class="ps-12" title="Factories" description="Factory 1 <br> Factory 2 <br> Factory 3" />
+            <div class="col-span-10 md:col-span-5 lg:col-span-6 mt-9 md:mt-0">
+                <x-informations.description-list class="md:ps-6 lg:ps-12" title="{{ __('lang.line_of_business') }}" description="Traditional Medicine Distribution" />
+                <x-informations.description-list class="md:ps-6 lg:ps-12" title="{{ __('lang.product_line') }}" description="Export: Beans, Maize, Tumeric, Ljwanti, Betal Nuts, SoapNut. <br> Import: Chemical, Herbal, Spices and others" />
+                <x-informations.description-list class="md:ps-6 lg:ps-12" title="{{ __('lang.factories') }}" description="Factory 1 <br> Factory 2 <br> Factory 3" />
             </div>
         </div>
         <div class="my-9">
-            <x-wrappers.sub-title title="About Us" />
+            <x-wrappers.sub-title title="{{ __('lang.about') }}" />
             <div>
                 <b>The standard Lorem Ipsum passage, used since the 1500s</b><br>
                 <p>

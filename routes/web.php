@@ -8,13 +8,13 @@ use App\Http\Controllers\WebsiteNewController;
 use App\Http\Controllers\InformationController;
 use App\Models\Product;
 
-if (\Request::segment(1) =='en') {
-    $lang ='en';
-    \App::setLocale('en');
+if (\Request::segment(1) =='mm') {
+    $lang ='mm';
+    \App::setLocale('mm');
 }
 else{
     $lang ='';
-    \App::setLocale('mm');
+    \App::setLocale('en');
 }
 Route::prefix($lang)->group(function ($lang) {
     Route::controller(InformationController::class)->group(function(){
@@ -35,6 +35,7 @@ Route::prefix($lang)->group(function ($lang) {
     });
 
     Route::get('/news', [WebsiteNewController::class, 'news'])->name('news');
+    Route::get('/news/{new}', [WebsiteNewController::class, 'detail'])->name('news-detail');
 
 });
 

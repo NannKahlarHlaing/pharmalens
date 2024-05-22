@@ -1,4 +1,4 @@
-<div id="sideNav" class="lg:block hidden bg-white w-64 h-screen  rounded-none border-none">
+<div id="sideNav" class="lg:block hidden bg-white w-72 min-h-screen h-auto rounded-none border-none">
     <!-- Items -->
     <div class="p-4 space-y-4">
         <a href="{{ route('dashboard') }}" class="px-4 py-2 flex items-center space-x-4 rounded-md text-gray-500 group">
@@ -23,7 +23,7 @@
         </a> --}}
         <form action="/logout" method="POST">
             @csrf
-            <button type="submit" class="px-4 py-2 flex items-center space-x-4 rounded-md text-gray-500 group"><i class="fas fa-sign-out-alt"></i><span class="ms-3">Sign Out</span></button>
+            <button type="submit" class="px-4 py-2 flex items-center space-x-4 rounded-md text-custom-blue font-bold group"><i class="fas fa-sign-out-alt"></i><span class="ms-3 text-custom-blue   ">Sign Out</span></button>
         </form>
     </div>
 </div>

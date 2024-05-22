@@ -25,9 +25,9 @@
                 <x-input-error :messages="$errors->get('name_mm')" class="mt-2" />
             </div>
 
-            <div class="mb-4"> 
-                <x-input-label for="category" :value="__('Category')" /> {{ $product->category }}
-                <select name="category" id="category" class="bborder-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
+            <div class="mb-4">
+                <x-input-label for="category" :value="__('Category')" />
+                <select name="category" id="category" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
                     <option value="">Choose Category</option>
                     @foreach (App\Enums\Category::cases() as $key=>$value )
                         <option value="{{$value}}" {{ (old("category", $product->category) == $value ? "selected":"") }}>
@@ -39,8 +39,8 @@
             </div>
 
             <div class="mb-4">
-                <x-input-label for="trading" :value="__('Trading')" />{{ $product->trading }}
-                <select name="trading" id="trading" class="bborder-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
+                <x-input-label for="trading" :value="__('Trading')" />
+                <select name="trading" id="trading" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
                     <option value="">Choose trading</option>
                     @foreach (App\Enums\ProductType::cases() as $key=>$value )
                         <option value="{{$value }}" {{ (old("trading", $product->trading) == $value ? "selected":"") }}>

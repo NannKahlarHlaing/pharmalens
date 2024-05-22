@@ -20,16 +20,19 @@
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-    
+
 </head>
-<body class="bg-custom-white">
+<body class="bg-custom-white text-custom-black">
+    <span class="hidden" id="language">{{ app()->getLocale() }}</span>
     <x-navbar />
     {{ $slot }}
     <x-footer-section />
 
     {{-- tailwind modal --}}
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
- 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     {{-- swiper js start --}}
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
@@ -65,7 +68,7 @@
 
         // banner swiper end
 
-         // product swiper start 
+         // product swiper start
          swiperTwo = new Swiper('.product-swiper', {
             // Optional parameters
             direction: 'horizontal',
@@ -86,10 +89,41 @@
                 prevEl: '.swiper-button-prev',
             },
         });
-    // product swiper end 
+    // product swiper end
+
+    // swiper js end
+
+        $(document).ready(function(){
+            var appUrl = '{{ $app_url }}';
+            var lang = $('#language').text();
+
+            $('#lang').on('click', function(event) {
+                event.preventDefault();
+                var currentUrl = window.location.href;
+                var urlObject = new URL(currentUrl);
+                var pathSegments = urlObject.pathname.split('/').filter(segment => segment);
+
+                if (lang === 'en') {
+                    // Add 'mm' as a prefix to each path segment and to the path itself
+                    var newPathSegments = pathSegments.map(function(segment) {
+                        return segment === '' ? '' : 'mm/' + segment;
+                    });
+                    pathSegments.splice(0, 0, 'mm');  // Ensure 'mm' is at the beginning of the path
+                    urlObject.pathname = '/' + pathSegments.join('/');
+                } else if (lang === 'mm') {
+                    // Remove 'mm' from the path if it exists
+                    if (pathSegments[0] === 'mm') {
+                        pathSegments.splice(0, 1);
+                    }
+                    urlObject.pathname = '/' + pathSegments.join('/');
+                }
+
+                window.location.href = urlObject.href;
+            });
+
+        });
 
     </script>
 
-    {{-- swiper js end --}}
 </body>
 </html>

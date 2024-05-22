@@ -10,7 +10,8 @@ export default {
       colors: {
         'custom-white': '#F7F9FF',
         'custom-yellow': '#FFF7D6',
-        'custom-blue' : '#466B73'
+        'custom-blue' : '#466B73',
+        'custom-black' : '#444444'
       },
     },
   },

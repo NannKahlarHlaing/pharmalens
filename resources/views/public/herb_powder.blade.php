@@ -4,7 +4,7 @@
     </x-wrappers.banner>
 
     <x-wrappers.container>
-        <x-wrappers.page-title class="position-absolute -mt-16 mb-16" title="Herb Powder" />
+        <x-wrappers.page-title class="position-absolute -mt-16 mb-16" title="{{ __('lang.herb_powder') }}" />
         <x-products.product-swiper :posts="$herb_powders" />
         <div class="mb-9">{{ $herb_powders->links() }}</div>
     </x-wrappers.container>

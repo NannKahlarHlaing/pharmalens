@@ -1,39 +1,34 @@
 <x-layout>
-    <x-wrappers.banner> 
+    <x-wrappers.banner>
         <img src="{{ asset('images/patient-special-issue-probiotic-top.webp') }}" class="w-full h-96 object-cover"  alt="">
     </x-wrappers.banner>
     <x-wrappers.container class="">
-        <x-wrappers.page-title class="position-absolute -mt-16" title="Contact" />
+        <x-wrappers.page-title class="position-absolute -mt-16" title="{{ __('lang.contact') }}" />
         <div class="grid grid-cols-6 mb-4 mt-9 gap-8">
-            <div class="col-span-3">
+            <div class="col-span-6 lg:col-span-3">
                 <x-wrappers.sub-title title="Get In Touch" />
                 <div class="mb-5">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio voluptate repudiandae corporis ipsa facere, qui minus sit neque porro molestiae optio odit error debitis vel magnam dicta. Ad, placeat rerum.
                 </div>
                 <div class="flex gap-8">
-                    <div class="flex mb-4">
+                    <div class="md:flex mb-4">
                         <div class="text-lg font-semibold me-4">
                             Phone :
                         </div>
                         <div class="">
-                            <div class="">
-                                094534534554
-                            </div>
-                            <div class="">
-                                094656546
-                            </div>
+                            @foreach ($phone as $item)
+                                <a class="block">{{ $item }}</a>
+                            @endforeach
                         </div>
                     </div>
-                    <div class="flex mb-4">
+                    <div class="md:flex mb-4">
                         <div class="text-lg font-semibold me-4">
                             Email :
                         </div>
                         <div class="">
-                            <div class="">
-                                sample@gmail.com
-                            </div>
-                            <div class="">
-                            </div>
+                            @foreach ($email as $item)
+                                <a class="block">{{ $item }}</a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -42,13 +37,11 @@
                         Address :
                     </div>
                     <div class="">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio voluptate repudiandae corporis ipsa facere,
-                        </p>
+                        {{ $info->address }}
                     </div>
                 </div>
             </div>
-            <div class="col-span-3 w-full sm:max-w-md mt-6 px-6 py-4  shadow-md overflow-hidden sm:rounded-lg">
+            <div class="col-span-6 lg:col-span-3 w-full sm:max-w-md mt-6 px-6 py-4  shadow-md overflow-hidden sm:rounded-lg">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.015362402795!2d96.15210381190907!3d16.775911283944072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ed47d4ce303d%3A0x4a855164dee68608!2sSANDHI%20BROTHERS%20TRADING%20CO%20LTD!5e0!3m2!1sen!2smm!4v1715830431413!5m2!1sen!2smm" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             {{-- <div class="col-span-3 w-full sm:max-w-md mt-6 px-6 py-4  shadow-md overflow-hidden sm:rounded-lg">
@@ -73,7 +66,7 @@
                         <textarea class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 border-0 rounded-md shadow-sm block mt-1 px-2 w-full"  name=""rows="5"></textarea>
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
-            
+
                     <x-primary-button class="h-10">
                         {{ __('Submit') }}
                     </x-primary-button>
@@ -82,8 +75,8 @@
             </div> --}}
         </div>
         <div class="my-9">
-            <x-wrappers.sub-title title="Contact Us" />
-            <div class="grid grid-cols-3 gap-8 items-center">
+            <x-wrappers.sub-title title="{{ __('lang.contact_us') }}" />
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center">
                 <x-wrappers.card class="bg-custom-yellow p-5">
                     <div class="flex justify-between items-center">
                         <div class="">
@@ -92,8 +85,12 @@
                         </div>
                         <div x-data="{ inquiryForm: false }">
                             <!-- Trigger button -->
-                             <x-primary-button class="ms-4 h-10" @click="inquiryForm = true" >Send</x-primary-button>
-                    
+                             <button class="ms-4 h-10 animate-pulse hover:animate-none" @click="inquiryForm = true" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 512 512">
+                                    <path fill="#466B73" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1c-4.2-4.5-10.1-7.1-16.3-7.1C266 128 256 138 256 150.3V208H160c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v57.7c0 12.3 10 22.3 22.3 22.3c6.2 0 12.1-2.6 16.3-7.1l99.9-107.1c3.5-3.8 5.5-8.7 5.5-13.8s-2-10.1-5.5-13.8L294.6 135.1z" stroke="" />
+                                </svg>
+                             </button>
+
                             <!-- Modal -->
                             <div x-show="inquiryForm" class="fixed inset-0 flex items-center justify-center z-50">
                                 <div class="bg-white rounded-2xl p-6 w-[500px] max-w-full shadow-lg transform transition-all duration-300" x-show.transition.opacity="inquiryForm">
@@ -107,7 +104,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                    
+
                                     <!-- Modal Content -->
                                     <div class="mt-6 space-y-4">
                                         <div>
@@ -169,8 +166,12 @@
                         </div>
                         <div x-data="{ complaintForm: false }">
                             <!-- Trigger button -->
-                             <x-primary-button class="ms-4 h-10" @click="complaintForm = true" >Send</x-primary-button>
-                    
+                            <button class="ms-4 h-10 animate-pulse hover:animate-none" @click="complaintForm = true" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 512 512">
+                                    <path fill="#466B73" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1c-4.2-4.5-10.1-7.1-16.3-7.1C266 128 256 138 256 150.3V208H160c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v57.7c0 12.3 10 22.3 22.3 22.3c6.2 0 12.1-2.6 16.3-7.1l99.9-107.1c3.5-3.8 5.5-8.7 5.5-13.8s-2-10.1-5.5-13.8L294.6 135.1z" stroke="" />
+                                </svg>
+                            </button>
+
                             <!-- Modal -->
                             <div x-show="complaintForm" class="fixed inset-0 flex items-center justify-center z-50">
                                 <div class="bg-white rounded-lg p-6 w-[500px] max-w-full shadow-lg transform transition-all duration-300" x-show.transition.opacity="complaintForm">
@@ -223,7 +224,6 @@
                             </div>
                         </div>
                     </div>
-
                 </x-wrappers.card>
 
                 <x-wrappers.card class="bg-custom-yellow p-5">
@@ -234,8 +234,12 @@
                         </div>
                         <div x-data="{ feedbackForm: false }">
                             <!-- Trigger button -->
-                             <x-primary-button class="ms-4 h-10" @click="feedbackForm = true" >Send</x-primary-button>
-                    
+                            <button class="ms-4 h-10 animate-pulse hover:animate-none" @click="feedbackForm = true" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 512 512">
+                                    <path fill="#466B73" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1c-4.2-4.5-10.1-7.1-16.3-7.1C266 128 256 138 256 150.3V208H160c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v57.7c0 12.3 10 22.3 22.3 22.3c6.2 0 12.1-2.6 16.3-7.1l99.9-107.1c3.5-3.8 5.5-8.7 5.5-13.8s-2-10.1-5.5-13.8L294.6 135.1z" stroke="" />
+                                </svg>
+                            </button>
+
                             <!-- Modal -->
                             <div x-show="feedbackForm" class="fixed inset-0 flex items-center justify-center z-50">
                                 <div class="bg-white rounded-lg p-6 w-[500px] max-w-full shadow-lg transform transition-all duration-300" x-show.transition.opacity="feedbackForm">
@@ -249,7 +253,7 @@
                                             </svg>
                                         </button>
                                     </div>
-                                    
+
                                     <div class="mt-6 space-y-4">
                                         <div>
                                             <x-input-label for="name" :value="__('Name')" />
@@ -278,6 +282,6 @@
                 </x-wrappers.card>
 
             </div>
-        </div>    
+        </div>
     </x-wrappers.container>
 </x-layout>

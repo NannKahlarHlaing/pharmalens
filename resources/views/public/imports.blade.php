@@ -4,7 +4,7 @@
     </x-wrappers.banner>
 
     <x-wrappers.container>
-        <x-wrappers.page-title class="position-absolute -mt-16 mb-16" title="Import Items" />
+        <x-wrappers.page-title class="position-absolute -mt-16 mb-16" title="{{ __('lang.import_items') }}" />
         <x-products.product-swiper :posts="$import_items" />
     </x-wrappers.container>
 </x-layout>

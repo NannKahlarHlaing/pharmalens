@@ -4,7 +4,7 @@
     </x-wrappers.banner>
 
     <x-wrappers.container>
-        <x-wrappers.page-title class="position-absolute -mt-16 mb-16" title="Export Items" />
+        <x-wrappers.page-title class="position-absolute -mt-16 mb-16" title="{{ __('lang.export_items') }}" />
         <x-products.product-swiper :posts="$export_items" />
         <div class="mb-9">{{ $export_items->links() }}</div>
     </x-wrappers.container>

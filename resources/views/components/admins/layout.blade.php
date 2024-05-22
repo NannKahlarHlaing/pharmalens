@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="bg-gray-200 ">
+<body class="bg-gray-200">
     <nav class="bg-white border-b border-gray-300">
         <div class="flex justify-between items-center px-9">
             <div class="">
@@ -32,7 +32,7 @@
         </div>
     </nav>
     <div class="flex">
-        <x-admins.navbar />
+        <x-admins.sidebar />
         <div class="lg:px-8 lg:flex lg:flex-col mt-5 w-full">
             {{ $slot }}
         </div>
@@ -40,6 +40,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Script  -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
 
         // Agregar lógica para mostrar/ocultar la navegación lateral al hacer clic en el ícono de menú
@@ -49,7 +53,23 @@
         // menuBtn.addEventListener('click', () => {
         //     sideNav.classList.toggle('hidden');
         // });
+        $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
     </script>
+
 </body>
 
 </html>

@@ -26,7 +26,7 @@
                             {{ $item->title }}
                         </td>
                         <td>
-                            {{ $item->body }}
+                            {{ $item->slug }}
                         </td>
                         <td>
                             <a href="{{ route('dashboard.news.edit', $item->id) }}">
