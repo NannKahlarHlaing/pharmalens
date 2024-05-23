@@ -7,10 +7,10 @@
     <title>Sandhi Brothers</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-
+    @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-gray-200 text-custom-black">
     <nav class="bg-white border-b border-gray-300">
         <div class="flex justify-between items-center px-9">
             <div class="">
@@ -27,7 +27,7 @@
                 {{-- <button>
 
                 </button> --}}
-                <div class="space-x-2"><i class="fas fa-user text-cyan-500 text-lg"></i> {{ ucwords(auth()->user()->name)  }}</div>
+                <div class="space-x-2"><i class="fas fa-user text-custom-black text-lg"></i> {{ ucwords(auth()->user()->name)  }}</div>
             </div>
         </div>
     </nav>

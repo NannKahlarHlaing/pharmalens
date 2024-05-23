@@ -39,11 +39,11 @@
             </div>
 
             <div class="mb-4">
-                <x-input-label for="trading" :value="__('Trading')" />
+                <x-input-label for="trading" :value="__('Trading')" />{{ old('trading') }}
                 <select name="trading" id="trading" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
                     <option value="">Choose trading</option>
                     @foreach (App\Enums\ProductType::cases() as $key=>$value )
-                        <option value="{{$value }}" {{ (old("trading", $product->trading) == $value ? "selected":"") }}>
+                        <option value="{{$value }}" {{ (old('trading', $product->trading) == $value ? 'selected' : '') }}>
                             {{ App\Enums\ProductType::cases()[$key]->description()}}
                         </option>
                     @endforeach

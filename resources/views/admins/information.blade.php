@@ -4,7 +4,7 @@
     @endif
     <div class="max-w-xl">
         <x-wrappers.sub-title title="Page Information" />
-            @if ($errors->any())
+            {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -12,7 +12,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif --}}
         <form method="POST" action="">
             <input type="hidden" name="id" value="{{ is_object($post) ? $post->id : '' }}">
             @csrf

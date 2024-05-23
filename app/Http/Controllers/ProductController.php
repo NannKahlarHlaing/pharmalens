@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\UpdateProductRequest;
 use Intervention\Image\Laravel\Facades\Image;
-use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -85,7 +86,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(Request $request, Product $product){
+    public function update(UpdateProductRequest $request, Product $product){
         // dd(request()->trading);
         $product->name_en = request()->name_en;
         $product->name_mm = request()->name_mm;

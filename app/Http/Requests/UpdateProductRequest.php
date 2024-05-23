@@ -7,7 +7,7 @@ use App\Enums\ProductType;
 use Illuminate\Validation\Rules\Enum;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductStoreRequest extends FormRequest
+class UpdateProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,7 @@ class ProductStoreRequest extends FormRequest
             'name_mm' => 'required|max:255',
             'category' => [new Enum(Category::class)],
             'trading' => [new Enum(ProductType::class)],
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'image' => 'mimes:png,jpg,jpeg'
         ];
     }
 }

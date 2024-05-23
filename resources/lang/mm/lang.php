@@ -16,7 +16,7 @@
         'contact' => 'ဆက်သွယ်ရန်',
         'contact_us' => 'ကျွန်ုပ်တို့အားဆက်သွယ်ရန်',
         'business_description' => 'လုပ်ငန်းဖော်ပြချက်',
-        'line_of_business' => 'Line of Business',
+        'line_of_business' => 'စီးပွားရေးနယ်ပယ်',
         'product_line' => 'ထုတ်ကုန်လိုင်း',
         'factories' => 'စက်ရုံများ',
         'send' => 'မက်ဆေ့ခ်ျပို့ရန်'

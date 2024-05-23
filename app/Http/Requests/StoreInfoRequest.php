@@ -2,12 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\Category;
-use App\Enums\ProductType;
-use Illuminate\Validation\Rules\Enum;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductStoreRequest extends FormRequest
+class StoreInfoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +22,13 @@ class ProductStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name_en' => 'required|max:255',
-            'name_mm' => 'required|max:255',
-            'category' => [new Enum(Category::class)],
-            'trading' => [new Enum(ProductType::class)],
-            'image' => 'required|mimes:jpg,jpeg,png',
+            'phone' => 'required|max:255',
+            'email' => 'required|max:255',
+            'address' => 'required|max:255',
+            'facebook' => 'required|max:255',
+            'youtube' => 'required|max:255',
+            'twitter' => 'required|max:255',
+            'footer_text' => 'required|max:255',
         ];
     }
 }

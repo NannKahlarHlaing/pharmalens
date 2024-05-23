@@ -1,15 +1,15 @@
 <x-admins.layout>
         <div class=" max-w-xl">
             <x-wrappers.sub-title title="Create Product" />
-                @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+                {{-- @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif --}}
             <form method="POST" action="" enctype="multipart/form-data">
             @csrf
             <!-- Name -->
@@ -27,10 +27,10 @@
 
             <div class="mb-4">
                 <x-input-label for="category" :value="__('Category')" />
-                <select name="category" id="category" class="bborder-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
-                    <option value="">Choose Category</option>
+                <select name="category" id="category" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
+                    <option value="" >Choose Category</option>
                     @foreach (App\Enums\Category::cases() as $key=>$value )
-                        <option value="{{$value}}" {{ (old("category") == $value->value ? "selected":"") }}>
+                        <option value="{{$value}}" {{ (old("category") == $value ? "selected":"") }}>
                             {{ App\Enums\Category::cases()[$key]->description()}}
                         </option>
                     @endforeach
@@ -40,10 +40,10 @@
 
             <div class="mb-4">
                 <x-input-label for="trading" :value="__('Trading')" />
-                <select name="trading" id="trading" class="bborder-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
-                    <option value="">Choose trading</option>
+                <select name="trading" id="trading" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 h-10 w-full">
+                    <option value="" selected>Choose trading</option>
                     @foreach (App\Enums\ProductType::cases() as $key=>$value )
-                        <option value="{{$value}}" {{ (old("trading") == $value->value ? "selected":"") }}>
+                        <option value="{{$value}}" {{ (old("trading") == $value ? "selected":"") }}>
                             {{ App\Enums\ProductType::cases()[$key]->description()}}
                         </option>
                     @endforeach

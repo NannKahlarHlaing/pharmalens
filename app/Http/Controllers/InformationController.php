@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Information;
 use App\Models\WebsiteNew;
+use App\Models\Information;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreInfoRequest;
 
 class InformationController extends Controller
 {
@@ -38,7 +39,7 @@ class InformationController extends Controller
         ]);
     }
 
-    public function store(){
+    public function store(StoreInfoRequest $request){
         $posts = Information::all();
 
         $count = count($posts);

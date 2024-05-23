@@ -58,24 +58,11 @@ class WebsiteNewController extends Controller
         ]);
     }
 
-    public function update(Request $request, WebsiteNew $new){
+    public function update(StoreNewRequest $request, WebsiteNew $new){
         $new->title = request()->title;
         $new->body = request()->body;
         $new->slug = request()->short_desc;
-
-        $image = request()->image;
-        if ($image) {
-            $this->create_path();
-            $img = time() . '.' . $image->getClientOriginalExtension();
-            $image = Image::read($image);
-            // Resize image
-            $image->save(public_path('storage/images/news/original/' . $img));
-            $image->resize(400, 400, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path('storage/images/news/thumbnail/' . $img));
-            $new->image = $img;
-        }
-
+        
         $new->save();
         return redirect('/dashboard/news')->with([
             'success' => 'New is updated successfully'
