@@ -16,7 +16,7 @@ class InformationController extends Controller
         return view('public.home', [
             'import_items' => Product::where('trading', 1)->take(10)->get(),
             'exports' => Product::where('trading', 2)->take(10)->get(),
-            'news' => WebsiteNew::take(4)->get()
+            'news' => WebsiteNew::latest()->take(4)->get()
         ]);
     }
     public function company_profile(){

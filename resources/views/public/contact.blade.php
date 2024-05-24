@@ -82,49 +82,51 @@
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                 </div>
+
+                                <x-informations.sending />
+
                                 <!-- Modal body -->
-                                <form action="{{ route('enquiry-mail') }}" method="POST" class="p-4 md:p-5">
+                                <form action="{{ route('inquiry-mail') }}" method="POST" id="inquiry-form" class="p-4 md:p-5">
                                     @csrf
                                     <div class="space-y-4">
                                         <div>
                                             <x-input-label for="name" :value="__('Name')" />
                                             <x-text-input id="name" type="text" name="name" :value="old('name')" required />
-                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                            <div id="cusname-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <div>
                                             <x-input-label for="company" :value="__('Company')" />
                                             <x-text-input id="company" type="text" name="company" :value="old('company')" required />
-                                            <x-input-error :messages="$errors->get('company')" class="mt-2" />
+                                            <div id="company-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <div>
                                             <x-input-label for="phone" :value="__('Phone')" />
                                             <x-text-input id="phone" type="text" name="phone" :value="old('phone')" required />
-                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                            <div id="cusphone-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <div>
                                             <x-input-label for="email" :value="__('Email')" />
                                             <x-text-input id="email" type="email" name="email" :value="old('email')" required />
-                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                            <div id="cusemail-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <div>
                                             <x-input-label for="viber" :value="__('Whatsapp/Viber')" />
-                                            <x-text-input id="viber" type="viber" name="viber" :value="old('viber')" required />
-                                            <x-input-error :messages="$errors->get('viber')" class="mt-2" />
+                                            <x-text-input id="viber" type="text" name="viber" :value="old('viber')"  />
                                         </div>
                                         <div>
                                             <x-input-label for="commodity" :value="__('Commodity')" />
-                                            <x-text-input id="commodity" type="commodity" name="commodity" :value="old('commodity')" required />
-                                            <x-input-error :messages="$errors->get('commodity')" class="mt-2" />
+                                            <x-text-input id="commodity" type="text" name="commodity" :value="old('commodity')" required />
+                                            <div id="commodity-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <div>
                                             <x-input-label for="quantity" :value="__('Quantity')" />
-                                            <x-text-input id="quantity" type="quantity" name="quantity" :value="old('quantity')" required />
-                                            <x-input-error :messages="$errors->get('quantity')" class="mt-2" />
+                                            <x-text-input id="quantity" type="text" name="quantity" :value="old('quantity')" required />
+                                            <div id="quantity-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <div>
                                             <x-input-label for="message" :value="__('Message')" />
-                                            <textarea name="message" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="message" cols="30" rows="5">{{ old('message') }}</textarea>
-                                            <x-input-error :messages="$errors->get('message')" class="mt-2" />
+                                            <textarea name="message" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="message" cols="30" rows="5" required>{{ old('message') }}</textarea>
+                                            <div id="inquiry_message-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <x-primary-button class="ms-4 h-10">
                                             {{ __('Send Message') }}
@@ -165,39 +167,44 @@
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                 </div>
+
+                                <x-informations.sending />
+                                
                                 <!-- Modal body -->
-                                <form action="{{ route('complaint-mail') }}" method="POST" class="p-4 md:p-5">
+                                <form action="{{ route('complaint-mail') }}" method="POST" id="complaint-form" class="p-4 md:p-5">
                                     @csrf
                                     <div class="space-y-4">
                                         <div>
                                             <x-input-label for="name" :value="__('Name')" />
-                                            <x-text-input id="name" type="text" name="name" :value="old('name')" required autocomplete="name" />
-                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                            <x-text-input id="name" type="text" name="name" :value="old('name')" required />
+                                            <div id="username-error" class="text-sm text-red-600 mt-2"></div> 
                                         </div>
                                         <div>
                                             <x-input-label for="phone" :value="__('Phone')" />
                                             <x-text-input id="phone" type="text" name="phone" :value="old('phone')" required />
-                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                            <div id="userphone-error" class="text-sm text-red-600 mt-2"></div>
+
                                         </div>
                                         <div>
                                             <x-input-label for="email" :value="__('Email')" />
                                             <x-text-input id="email" type="email" name="email" :value="old('email')" required />
-                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                            <div id="useremail-error" class="text-sm text-red-600 mt-2"></div>
+
                                         </div>
                                         <div>
                                             <x-input-label for="viber" :value="__('Whatsapp/Viber')" />
-                                            <x-text-input id="viber" type="viber" name="viber" :value="old('viber')" required />
-                                            <x-input-error :messages="$errors->get('viber')" class="mt-2" />
+                                            <x-text-input id="viber" type="text" name="viber" :value="old('viber')"  />
+                                            <div id="viber-error" class="text-sm text-red-600 mt-2"></div>
+
                                         </div>
                                         <div>
                                             <x-input-label for="product_name" :value="__('Product Name or Name')" />
-                                            <x-text-input id="product_name" type="product_name" name="product_name" :value="old('product_name')" required />
-                                            <x-input-error :messages="$errors->get('product_name')" class="mt-2" />
+                                            <x-text-input id="product_name" type="text" name="product_name" :value="old('product_name')"  />
                                         </div>
                                         <div>
                                             <x-input-label for="message" :value="__('Message')" />
-                                            <textarea name="message" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="message" cols="30" rows="5">{{ old('message') }}</textarea>
-                                            <x-input-error :messages="$errors->get('message')" class="mt-2" />
+                                            <textarea name="message" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="message" cols="30" rows="5" required>{{ old('message') }}</textarea>
+                                            <div id="complaint_message-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <x-primary-button class="ms-4 h-10">
                                             {{ __('Send Message') }}
@@ -215,51 +222,6 @@
                             <x-footers.footer-title class="text-start" name="Feedback Form" />
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, saepe iure frwerw4er erwer erer
                         </div>
-                        {{-- <div x-data="{ feedbackForm: false }">
-                            <!-- Trigger button -->
-                            <button class="ms-4 h-10 animate-pulse hover:animate-none" @click="feedbackForm = true" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 512 512">
-                                    <path fill="#466B73" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1c-4.2-4.5-10.1-7.1-16.3-7.1C266 128 256 138 256 150.3V208H160c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v57.7c0 12.3 10 22.3 22.3 22.3c6.2 0 12.1-2.6 16.3-7.1l99.9-107.1c3.5-3.8 5.5-8.7 5.5-13.8s-2-10.1-5.5-13.8L294.6 135.1z" stroke="" />
-                                </svg>
-                            </button>
-
-                            <!-- Modal -->
-                            <div x-show="feedbackForm" class="fixed inset-0 flex items-center justify-center z-50">
-                                <div class="bg-white rounded-lg p-6 w-[500px] max-w-full shadow-lg transform transition-all duration-300" x-show.transition.opacity="feedbackForm">
-                                    <!-- Modal Header -->
-                                    <div class="flex justify-between items-center border-b-2 border-gray-200 pb-4">
-                                        <h2 class="text-2xl font-semibold">Feedback Form</h2>
-                                        <button @click="feedbackForm = false" class="text-gray-500 hover:text-gray-700 focus:outline-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-                                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <div class="mt-6 space-y-4">
-                                        <div>
-                                            <x-input-label for="name" :value="__('Name')" />
-                                            <x-text-input id="name" type="text" name="name" :value="old('name')" required autocomplete="name" />
-                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                                        </div>
-                                        <div>
-                                            <x-input-label for="phone" :value="__('Phone')" />
-                                            <x-text-input id="phone" type="text" name="phone" :value="old('phone')" required />
-                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-                                        </div>
-                                        <div>
-                                            <x-input-label for="message" :value="__('Suggestion')" />
-                                            <textarea name="message" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="message" cols="30" rows="5">{{ old('message') }}</textarea>
-                                            <x-input-error :messages="$errors->get('message')" class="mt-2" />
-                                        </div>
-                                        <x-primary-button class="ms-4 h-10">
-                                            {{ __('Send Message') }}
-                                        </x-primary-button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
                         <button data-modal-target="feedback" data-modal-toggle="feedback" class="ms-4 h-10 animate-pulse hover:animate-none" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 512 512">
                                 <path fill="#466B73" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1c-4.2-4.5-10.1-7.1-16.3-7.1C266 128 256 138 256 150.3V208H160c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v57.7c0 12.3 10 22.3 22.3 22.3c6.2 0 12.1-2.6 16.3-7.1l99.9-107.1c3.5-3.8 5.5-8.7 5.5-13.8s-2-10.1-5.5-13.8L294.6 135.1z" stroke="" />
@@ -282,24 +244,26 @@
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                 </div>
+
+                                <x-informations.sending />
                                 <!-- Modal body -->
-                                <form action="{{ route('feedback-mail') }}" method="POST" class="p-4 md:p-5">
+                                <form action="{{ route('feedback-mail') }}" id="feedback-form" method="POST" class="p-4 md:p-5">
                                     @csrf
                                     <div class="space-y-4">
                                         <div>
                                             <x-input-label for="name" :value="__('Name')" />
-                                            <x-text-input id="name" type="text" name="name" :value="old('name')" required autocomplete="name" />
-                                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                            <x-text-input id="name" type="text" name="name" :value="old('name')" required />
+                                            <div id="name-error" class="text-sm text-red-600 mt-2"></div>                                        
                                         </div>
                                         <div>
                                             <x-input-label for="phone" :value="__('Phone')" />
                                             <x-text-input id="phone" type="text" name="phone" :value="old('phone')" required />
-                                            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                                            <div id="phone-error" class="text-sm text-red-600 mt-2"></div>                                        
                                         </div>
                                         <div>
                                             <x-input-label for="message" :value="__('Suggestion')" />
-                                            <textarea name="message" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="message" cols="30" rows="5">{{ old('message') }}</textarea>
-                                            <x-input-error :messages="$errors->get('message')" class="mt-2" />
+                                            <textarea name="message" class="border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" id="message" cols="30" rows="5" required>{{ old('message') }}</textarea>
+                                            <div id="feedback_message-error" class="text-sm text-red-600 mt-2"></div>
                                         </div>
                                         <x-primary-button class="ms-4 h-10">
                                             {{ __('Send Message') }}

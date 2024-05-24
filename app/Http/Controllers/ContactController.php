@@ -6,15 +6,14 @@ use App\Mail\EnquiryMail;
 use App\Mail\FeedbackMail;
 use App\Mail\ComplaintMail;
 use App\Models\Information;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
     public function index(){
         $info = Information::first();
-
-        // dd($phone);
 
         return view('public.contact', [
             'info' => $info,
@@ -23,43 +22,89 @@ class ContactController extends Controller
         ]);
     }
 
-    public function enquiry_mail(Request $request){
+    public function inquiry_mail(Request $request){
+
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'commodity' => 'required|string|max:255',
+            'quantity' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'errors' =>  $validator->errors()
+            ]);
+        }
+
         $mail_to = env('MAIL_FROM_ADDRESS');
 
         Mail::to($mail_to)->send(new EnquiryMail(request()->all()));
 
-        return back()->with('success', 'Your Message has been send successfully!');
+        session()->flash('success', 'Your Inquiry message has been submitted successfully.');
+
+        return response()->json([
+            'success' =>  'success'
+        ]);
 
     }
 
-    public function complaint_mail(){
+    public function complaint_mail(Request $request){
+
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'product_name' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'errors' =>  $validator->errors()
+            ]);
+        }
+
         $mail_to = env('MAIL_FROM_ADDRESS');
         Mail::to($mail_to)->send(new ComplaintMail(request()->all()));
-        return back()->with('success', 'Your Message has been send successfully!');    }
+        
+        session()->flash('success', 'Your complaint has been submitted successfully.');
 
-    public function feedback_mail(){
+        return response()->json([
+            'success' =>  'success'
+        ]);
+    }
+
+    public function feedback_mail(Request $request){
+        $validator = Validator::make($request->all(),[
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'errors' =>  $validator->errors()
+            ]);
+        }
+
         $mail_to = env('MAIL_FROM_ADDRESS');
         Mail::to($mail_to)->send(new FeedbackMail(request()->all()));
-        return back()->with('success', 'Your Message has been send successfully!');    
+
+        session()->flash('success', 'Your feedback has been submitted successfully.');
+
+        return response()->json([
+            'success' =>  'success'
+        ]);
     }
 
     private function stringToArray($str)
     {
         $arr = explode(',', $str);
         return $arr;
-    }
-
-    private function getData($request){
-        return [
-            'name' => $request->name,
-            'company' => $request->company,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'viber' => $request->viber,
-            'commodity' => $request->commodity,
-            'quantity' => $request->quantity,
-            'message' => $request->message
-        ];
     }
 
 }

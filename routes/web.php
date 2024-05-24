@@ -32,7 +32,7 @@ Route::prefix($lang)->group(function ($lang) {
 
     Route::controller(ContactController::class)->group(function(){
         Route::get('contact', 'index')->name('contact');
-        Route::post('enquiry-mail', 'enquiry_mail')->name('enquiry-mail');
+        Route::post('inquiry-mail', 'inquiry_mail')->name('inquiry-mail');
         Route::post('complaint-mail', 'complaint_mail')->name('complaint-mail');
         Route::post('feedback-mail', 'feedback_mail')->name('feedback-mail');
     });

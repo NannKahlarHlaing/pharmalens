@@ -14,7 +14,7 @@
         <table class="table-auto w-full my-2">
             <thead>
                 <tr class="px-4 my-2 text-left border-b-2 text-ml font-bold text-gray-600">
-                    <th>Title</th>
+                    <th >Title</th>
                     <th>Body</th>
                     <th colspan="2">Action</th>
                 </tr>
@@ -22,11 +22,12 @@
             <tbody>
                 @foreach ($news as $item)
                     <tr class="border-b w-full px-4 py-10 text-left">
-                        <td>
+                        <th>
                             {{ $item->title }}
-                        </td>
-                        <td>
-                            {{ $item->slug }}
+                        </th>
+                        <td >
+                            <span class="">{{ $item->slug }}</span>
+                            
                         </td>
                         <td>
                             <a href="{{ route('dashboard.news.edit', $item->id) }}">

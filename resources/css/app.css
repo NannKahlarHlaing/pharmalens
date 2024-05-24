@@ -16,3 +16,10 @@ body{
     line-height: 24px;
 }
 
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+

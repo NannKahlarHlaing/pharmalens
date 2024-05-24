@@ -38,32 +38,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
     <script>
+        var slidePerPage = 4;
+        var swiperTwo;
+
         // banner swiper start
         const swiper = new Swiper('.banner-swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
 
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
 
-        autoplay: {
-            delay: 3000, // Delay between slides in milliseconds (5 seconds in this example)
-            disableOnInteraction: false, // Enable autoplay even if user interacts with swiper
-        },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false, 
+            },
 
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
 
-        // And if we need scrollbar
-        // scrollbar: {
-        //     el: '.swiper-scrollbar',
-        // },
+            // And if we need scrollbar
+            // scrollbar: {
+            //     el: '.swiper-scrollbar',
+            // },
         });
 
         // banner swiper end
@@ -81,51 +84,182 @@
                     el: '.swiper-pagination',
                 },
             // Set the number of slides to show at a time
-            slidesPerView: 4,
+            // slidesPerView: 2,
             spaceBetween: 32,
             // Navigation arrows
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+            breakpoints: {
+                426: {
+                slidesPerView: 2,
+                // spaceBetween: 32,
+                },
+                769: {
+                slidesPerView: 4,
+                // spaceBetween: 32,
+                },
+                
+            },
         });
     // product swiper end
 
     // swiper js end
+    $(document).ready(function(){
+        var appUrl = '{{ $app_url }}';
+        var lang = $('#language').text();
 
-        $(document).ready(function(){
-            var appUrl = '{{ $app_url }}';
-            var lang = $('#language').text();
+        $('#lang').on('click', function(event) {
+            event.preventDefault();
+            var currentUrl = window.location.href;
+            var urlObject = new URL(currentUrl);
+            var pathSegments = urlObject.pathname.split('/').filter(segment => segment);
 
-            $('#lang').on('click', function(event) {
-                event.preventDefault();
-                var currentUrl = window.location.href;
-                var urlObject = new URL(currentUrl);
-                var pathSegments = urlObject.pathname.split('/').filter(segment => segment);
-
-                if (lang === 'en') {
-                    // Add 'mm' as a prefix to each path segment and to the path itself
-                    var newPathSegments = pathSegments.map(function(segment) {
-                        return segment === '' ? '' : 'mm/' + segment;
-                    });
-                    pathSegments.splice(0, 0, 'mm');  // Ensure 'mm' is at the beginning of the path
-                    urlObject.pathname = '/' + pathSegments.join('/');
-                } else if (lang === 'mm') {
-                    // Remove 'mm' from the path if it exists
-                    if (pathSegments[0] === 'mm') {
-                        pathSegments.splice(0, 1);
-                    }
-                    urlObject.pathname = '/' + pathSegments.join('/');
+            if (lang === 'en') {
+                // Add 'mm' as a prefix to each path segment and to the path itself
+                var newPathSegments = pathSegments.map(function(segment) {
+                    return segment === '' ? '' : 'mm/' + segment;
+                });
+                pathSegments.splice(0, 0, 'mm');  // Ensure 'mm' is at the beginning of the path
+                urlObject.pathname = '/' + pathSegments.join('/');
+            } else if (lang === 'mm') {
+                // Remove 'mm' from the path if it exists
+                if (pathSegments[0] === 'mm') {
+                    pathSegments.splice(0, 1);
                 }
+                urlObject.pathname = '/' + pathSegments.join('/');
+            }
 
-                window.location.href = urlObject.href;
-            });
-
+            window.location.href = urlObject.href;
         });
 
-        
+        $('#feedback-form').submit(function(event) {
+            event.preventDefault(); 
+            var formData = $('#feedback-form').serialize();
+
+            $('.loading-message').show();
+            $('#feedback-form').hide();
+
+            $.ajax({
+                url: '{{ route('feedback-mail')}}',
+                type: 'POST',
+                data: formData,
+                success:function(response)
+                {
+                    if (response.success) {
+                        location.reload();
+                    }else if(response.errors){
+                        $('.loading-message').hide();
+                        $('#feedback-form').show();
+                        errors =  response.errors;
+                        if(errors.name){
+                            $('#name-error').text(errors.name);
+                        }
+                        if(errors.phone){
+                            $('#phone-error').text(errors.phone);
+                        }
+                        if(errors.message){
+                            $('#feedback_message-error').text(errors.message);
+                        }
+                    }
+                },
+                error: function(response) {
+                    console.log(response)
+                }
+            });
+        });
+
+        $('#complaint-form').submit(function(event) {
+            event.preventDefault(); 
+            var formData = $('#complaint-form').serialize();
+
+            $('.loading-message').show();
+            $('#complaint-form').hide();
+
+            $.ajax({
+                url: '{{ route('complaint-mail')}}',
+                type: 'POST',
+                data: formData,
+                success:function(response)
+                {
+                    if (response.success) {
+                        location.reload();
+                    }else if(response.errors){
+                        $('.loading-message').hide();
+                        $('#complaint-form').show();
+                        errors =  response.errors;
+                        if(errors.name){
+                            $('#username-error').text(errors.name);
+                        }
+                        if(errors.phone){
+                            $('#userphone-error').text(errors.phone);
+                        }
+                        if(errors.email){
+                            $('#useremail-error').text(errors.email);
+                        }
+                        if(errors.message){
+                            $('#complaint_message-error').text(errors.message);
+                        }
+                    }
+                },
+                error: function(response) {
+                    console.log('responseerror' + response)
+                }
+            });
+        });
+
+        $('#inquiry-form').submit(function(event) {
+            event.preventDefault(); 
+            var formData = $('#inquiry-form').serialize();
+
+            $('.loading-message').show();
+            $('#inquiry-form').hide();
+
+            $.ajax({
+                url: '{{ route('inquiry-mail')}}',
+                type: 'POST',
+                data: formData,
+                success:function(response)
+                {
+                    if (response.success) {
+                        location.reload();
+                    }else if(response.errors){
+                        $('.loading-message').hide();
+                        $('#inquiry-form').show();
+                        errors =  response.errors;
+                        if(errors.name){
+                            $('#cusname-error').text(errors.name);
+                        }
+                        if(errors.company){
+                            $('#company-error').text(errors.name);
+                        }
+                        if(errors.phone){
+                            $('#cusphone-error').text(errors.phone);
+                        }
+                        if(errors.email){
+                            $('#cusemail-error').text(errors.email);
+                        }
+                        if(errors.commodity){
+                            $('#commodity-error').text(errors.commodity);
+                        }
+                        if(errors.quantity){
+                            $('#quantity-error').text(errors.quantity);
+                        }
+                        if(errors.message){
+                            $('#inquiry_message-error').text(errors.message);
+                        }
+                    }
+                },
+                error: function(response) {
+                    console.log('responseerror' + response)
+                }
+            });
+        });
+
+
+    });
 
     </script>
-
 </body>
 </html>
