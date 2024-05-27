@@ -20,5 +20,6 @@
         'product_line' => 'Product Line',
         'factories' => 'Factories',
         'send' => 'Send',
+        'certificate' => 'Certificate'
     ]
 ?>

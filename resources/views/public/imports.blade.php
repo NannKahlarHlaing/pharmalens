@@ -5,6 +5,11 @@
 
     <x-wrappers.container>
         <x-wrappers.page-title class="position-absolute -mt-16 mb-16" title="{{ __('lang.import_items') }}" />
-        <x-products.product-swiper :posts="$import_items" />
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-9">
+            @foreach($import_items as $post)
+                <x-products.product-card :post="$post" />
+            @endforeach
+        </div>
+        <div class="mb-9">{{ $import_items->links() }}</div>
     </x-wrappers.container>
 </x-layout>

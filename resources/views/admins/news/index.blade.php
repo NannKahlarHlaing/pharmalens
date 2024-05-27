@@ -14,20 +14,19 @@
         <table class="table-auto w-full my-2">
             <thead>
                 <tr class="px-4 my-2 text-left border-b-2 text-ml font-bold text-gray-600">
-                    <th >Title</th>
+                    <th >Title (English)</th>
                     <th>Body</th>
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($news as $item)
-                    <tr class="border-b w-full px-4 py-10 text-left">
-                        <th>
-                            {{ $item->title }}
+                    <tr class="border-b w-full text-left">
+                        <th class="py-3">
+                            {{ $item->title_en }}
                         </th>
                         <td >
-                            <span class="">{{ $item->slug }}</span>
-                            
+                            <span class="line-clamp">{!! $item->body_en !!} </span>
                         </td>
                         <td>
                             <a href="{{ route('dashboard.news.edit', $item->id) }}">

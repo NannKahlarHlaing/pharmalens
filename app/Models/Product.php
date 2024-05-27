@@ -20,12 +20,18 @@ class Product extends Model
     ];
 
 
-    protected $appends = ['name'];
+    protected $appends = ['name', 'description'];
 
     public function getNameAttribute(){
         $language = app()->getLocale(); // Get the current locale
 
         return $language === 'en' ? $this->name_en : $this->name_mm;
+    }
+
+    public function getDescriptionAttribute(){
+        $language = app()->getLocale(); // Get the current locale
+
+        return $language === 'en' ? $this->desc_en : $this->desc_mm;
     }
 
     protected static function boot()

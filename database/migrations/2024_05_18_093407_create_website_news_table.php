@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('website_news', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug');
+            $table->string('title_en');
+            // $table->string('slug');
             $table->longText('body');
+            $table->longText('body_en');
             $table->integer('order');
+            $table->string('image');
             $table->softDeletes();
             $table->timestamps();
         });

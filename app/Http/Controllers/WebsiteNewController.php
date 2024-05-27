@@ -6,6 +6,10 @@ use App\Models\WebsiteNew;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNewRequest;
+use App\Http\Requests\UpdateNewRequest;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Laravel\Facades\Image;
+
 
 class WebsiteNewController extends Controller
 {
@@ -31,9 +35,10 @@ class WebsiteNewController extends Controller
     public function store(StoreNewRequest $request){
         $new = new WebsiteNew;
 
-        $new->title = request()->title;
-        $new->body = request()->body;
-        $new->slug = request()->short_desc;
+        $new->title_en = request()->title_en;
+        $new->title = request()->title_mm;
+        $new->body_en = request()->body_en;
+        $new->body = request()->body_mm;
 
         $image = request()->image;
         if ($image) {
@@ -58,10 +63,25 @@ class WebsiteNewController extends Controller
         ]);
     }
 
-    public function update(StoreNewRequest $request, WebsiteNew $new){
-        $new->title = request()->title;
-        $new->body = request()->body;
-        $new->slug = request()->short_desc;
+    public function update(UpdateNewRequest $request, WebsiteNew $new){
+        $new->title_en = request()->title_en;
+        $new->title = request()->title_mm;
+        $new->body_en = request()->body_en;
+        $new->body = request()->body_mm;
+
+        
+        $image = request()->image;
+        if ($image) {
+            $this->create_path();
+            $img = time() . '.' . $image->getClientOriginalExtension();
+            $image = Image::read($image);
+            // Resize image
+            $image->save(public_path('storage/images/news/original/' . $img));
+            $image->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save(public_path('storage/images/news/thumbnail/' . $img));
+            $new->image = $img;
+        }
         
         $new->save();
         return redirect('/dashboard/news')->with([

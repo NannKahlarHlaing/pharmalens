@@ -31,8 +31,8 @@
             </thead>
             <tbody>
                 @foreach ($products as $product)
-                    <tr class="border-b w-full px-4 py-10 text-left">
-                        <td>
+                    <tr class="border-b w-full text-left">
+                        <td class="py-3 ">
                             {{ $product->name_en }}
                         </td>
                         <td>

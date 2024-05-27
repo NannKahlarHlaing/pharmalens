@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name_mm');
             $table->string('name_en');
+            $table->longText('desc_mm')->nullable();
+            $table->longText('desc_en')->nullable();
             $table->integer('category'); 
             $table->integer('trading');
             $table->string('image');

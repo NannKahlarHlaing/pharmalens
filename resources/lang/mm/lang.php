@@ -19,6 +19,7 @@
         'line_of_business' => 'စီးပွားရေးနယ်ပယ်',
         'product_line' => 'ထုတ်ကုန်လိုင်း',
         'factories' => 'စက်ရုံများ',
-        'send' => 'မက်ဆေ့ခ်ျပို့ရန်'
+        'send' => 'မက်ဆေ့ခ်ျပို့ရန်',
+        'certificate' => 'Certificate'
     ]
 ?>

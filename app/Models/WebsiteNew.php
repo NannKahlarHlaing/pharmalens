@@ -12,6 +12,20 @@ class WebsiteNew extends Model
 
     protected $guarded = [];
 
+    protected $appends = ['name', 'description'];
+
+    public function getNameAttribute(){
+        $language = app()->getLocale(); // Get the current locale
+
+        return $language === 'en' ? $this->title_en : $this->title;
+    }
+
+    public function getDescriptionAttribute(){
+        $language = app()->getLocale(); // Get the current locale
+
+        return $language === 'en' ? $this->body_en : $this->body;
+    }
+
     protected static function boot()
     {
         parent::boot();

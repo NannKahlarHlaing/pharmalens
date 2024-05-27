@@ -8,6 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     @vite('resources/css/app.css')
+    <style>
+        .line-clamp {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 70ch; 
+        }
+
+    </style>
 </head>
 
 <body class="bg-gray-200 text-custom-black">
@@ -33,7 +42,7 @@
     </nav>
     <div class="flex">
         <x-admins.sidebar />
-        <div class="lg:px-8 lg:flex lg:flex-col mt-5 w-full">
+        <div class="lg:px-8 lg:flex lg:flex-col mt-5 w-full mb-9">
             {{ $slot }}
         </div>
     </div>
@@ -53,8 +62,8 @@
         // menuBtn.addEventListener('click', () => {
         //     sideNav.classList.toggle('hidden');
         // });
-        $('#summernote').summernote({
-        placeholder: 'Hello stand alone ui',
+        $('.summernote').summernote({
+        placeholder: 'Please Enter Note',
         tabsize: 2,
         height: 120,
         toolbar: [

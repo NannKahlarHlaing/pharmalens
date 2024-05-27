@@ -1,13 +1,13 @@
 <x-layout>
     <x-wrappers.banner>
-        <img src="{{ asset('images/patient-special-issue-probiotic-top.webp') }}" class="w-full h-96 object-cover"  alt="">
+        <img src="{{ asset('images/banner5.jpg') }}" class="w-full h-64 md:h-96 object-cover"  alt="">
     </x-wrappers.banner>
     <x-wrappers.container>
-        <x-wrappers.page-title class="position-absolute -mt-16" title="Company Profile" />
+        <x-wrappers.page-title class="position-absolute -mt-16 text-white" title="Company Profile" />
         <div class="grid grid-cols-10 mb-4 mt-9">
             <x-wrappers.sub-title class="col-span-10" title="{{ __('lang.business_description') }}" />
             <div class="col-span-10 md:col-span-5 lg:col-span-4">
-                <img src="{{ asset('images/wallpaper-1-e1696784878917.jpg') }}" class="w-full h-80" alt="">
+                <img src="{{ asset('images/banner2.jpg') }}" class="w-full h-80" alt="">
             </div>
             <div class="col-span-10 md:col-span-5 lg:col-span-6 mt-9 md:mt-0">
                 <x-informations.description-list class="md:ps-6 lg:ps-12" title="{{ __('lang.line_of_business') }}" description="Traditional Medicine Distribution" />

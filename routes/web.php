@@ -28,6 +28,7 @@ Route::prefix($lang)->group(function ($lang) {
         Route::get('raw-for-medicine', 'raw_medicine')->name('raw-for-medicine');
         Route::get('herb-powder', 'herb_powder')->name('herb-powder');
         Route::get('herb-tablet', 'herb_tablet')->name('herb-tablet');
+        Route::get('/products/{product}', 'detail')->name('product-detail');
     });
 
     Route::controller(ContactController::class)->group(function(){

@@ -50,9 +50,21 @@
                 </select>
                 <x-input-error :messages="$errors->get('trading')" class="mt-2" />
             </div>
-            <!-- Email Address -->
+
             <div class="mb-4">
-                <x-input-label for="email" :value="__('Image')" />
+                <x-input-label for="desc_en" :value="__('Description (English)')" />
+                <textarea name="desc_en" class="summernote border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" cols="30" rows="10">{{ old('desc_en') }}</textarea>
+                <x-input-error :messages="$errors->get('desc_en')" class="mt-2" />
+            </div>
+
+            <div class="mb-4">
+                <x-input-label for="desc_mm" :value="__('Description (Myanmar)')" />
+                <textarea name="desc_mm" class="summernote border-gray-300 focus:border-gray-500 focus:ring-gray-500 rounded-md shadow-sm block mt-1 px-2 w-full" cols="30" rows="10">{{ old('desc_mm') }}</textarea>
+                <x-input-error :messages="$errors->get('desc_mm')" class="mt-2" />
+            </div>
+
+            <div class="mb-4">
+                <x-input-label for="image" :value="__('Image')" />
                 <x-text-input id="image" class="block mt-1 px-2 h-10 w-full" type="file" name="image" :value="old('image')" required  />
                 <x-input-error :messages="$errors->get('image')" class="mt-2" />
             </div>

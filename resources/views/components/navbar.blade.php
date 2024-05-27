@@ -14,7 +14,7 @@
         <div class="hidden w-full lg:w-auto lg:block" id="navbar-dropdown">
             <ul class="flex flex-col font-medium p-4 lg:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white">
                 <li>
-                    <a href="{{ url('/') }}" class="block py-2 px-3 lg:text-custom-blue bg-custom-blue rounded lg:bg-transparent lg:p-0 hover:font-bold" aria-current="page">{{ __('lang.home') }}</a>
+                    <a href="{{ url('/') }}" class="block py-2 px-3 lg:text-custom-black bg-custom-blue rounded lg:bg-transparent lg:p-0 hover:font-bold" aria-current="page">{{ __('lang.home') }}</a>
                 </li>
                 <li class="relative">
                     <button id="" data-dropdown-toggle="about-us" class="flex items-center justify-between w-full py-2 px-3 text-custom-black rounded hover:font-bold hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-custom-blue lg:p-0 lg:w-auto">

@@ -19,7 +19,14 @@ class ProductController extends Controller
         ]);
     }
 
+    public function detail(Product $product){
+        return view('public.product_detail', [
+            'product' => $product
+        ]);
+    }
+
     public function import_items(){
+        
         return view('public.imports', [
             'import_items' => Product::where('trading', 1)->latest()->paginate(16)
         ]);
@@ -33,21 +40,19 @@ class ProductController extends Controller
 
     public function raw_medicine(){
         return view('public.raw_for_medicine', [
-            'raw_medicines' => Product::where('category', 1)->latest()->paginate(2)
+            'raw_medicines' => Product::where('category', 1)->latest()->paginate(16)
         ]);
     }
 
     public function herb_powder(){
         return view('public.herb_powder', [
-            'herb_powders' => Product::where('category', 2)->latest()->paginate(2)
+            'herb_powders' => Product::where('category', 2)->latest()->paginate(16)
         ]);
     }
 
     public function herb_tablet(){
-        // $a = Product::where('category', 3)->toSql();
-        // dd($a);
         return view('public.herb_tablet', [
-            'herb_tablets' => Product::where('category', 3)->latest()->paginate(2)
+            'herb_tablets' => Product::where('category', 3)->latest()->paginate(16)
         ]);
     }
 
@@ -62,6 +67,8 @@ class ProductController extends Controller
         $product->name_mm = request()->name_mm;
         $product->category = request()->category;
         $product->trading = request()->trading;
+        $product->desc_en = request()->desc_en;
+        $product->desc_mm = request()->desc_mm;
 
         $image = request()->image;
         if ($image) {
@@ -72,6 +79,7 @@ class ProductController extends Controller
             $image->save(public_path('storage/images/products/original/' . $img));
             $image->resize(400, 400, function ($constraint) {
                 $constraint->aspectRatio();
+                $constraint->upsize();
             })->save(public_path('storage/images/products/thumbnail/' . $img));
             $product->image = $img;
         }
@@ -92,9 +100,8 @@ class ProductController extends Controller
         $product->name_mm = request()->name_mm;
         $product->category = request()->category;
         $product->trading = request()->trading;
-
-        $product->save();
-        // dd($product);
+        $product->desc_en = request()->desc_en;
+        $product->desc_mm = request()->desc_mm;
 
         $image = request()->image;
         if ($image) {
@@ -105,6 +112,7 @@ class ProductController extends Controller
             $image->save(public_path('storage/images/products/original/' . $img));
             $image->resize(400, 400, function ($constraint) {
                 $constraint->aspectRatio();
+                $constraint->upsize();
             })->save(public_path('storage/images/products/thumbnail/' . $img));
             $product->image = $img;
         }

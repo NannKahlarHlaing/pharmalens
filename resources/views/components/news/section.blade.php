@@ -3,8 +3,8 @@
     @foreach ($news as $new)
         <x-wrappers.card class="border-custom-blue text-center">
             <div class="p-5 border-b border-custom-blue">
-                <x-footers.footer-title class="truncate" name="{{ $new->title }}" />
-                <div class="line-clamp ">{{ $new->slug }}</div>
+                <x-footers.footer-title class="truncate" name="{{ $new->name }}" />
+                <div class="line-clamp ">{!! $new->description !!}</div>
             </div>
 
             <div class="p-3">

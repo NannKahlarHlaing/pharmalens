@@ -13,6 +13,11 @@ export default {
         'custom-blue' : '#466B73',
         'custom-black' : '#444444'
       },
+      height: {
+        'custom': '600px', 
+        'md-custom': '24rem',
+        'sm-custom': '16rem',
+      },
     },
   },
   plugins: [
