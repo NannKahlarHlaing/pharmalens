@@ -1,6 +1,6 @@
 <x-admins.layout>
         <div class=" max-w-xl">
-            @if ($errors->any())
+            {{-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -8,7 +8,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif --}}
             <x-wrappers.sub-title title="Create New" />
             <form method="POST" action="" enctype="multipart/form-data" >
             @csrf
